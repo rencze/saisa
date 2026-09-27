@@ -394,7 +394,7 @@
       font-weight: 700;
     }
 
-    .messenger-button {
+    .copy-button {
       width: 100%;
       padding: 12px 18px;
       border: 0;
@@ -407,11 +407,11 @@
       box-shadow: 0 6px 14px rgba(8, 102, 255, 0.25);
     }
 
-    .messenger-button:hover {
+    .copy-button:hover {
       background: #0057dc;
     }
 
-    .messenger-button:focus-visible {
+    .copy-button:focus-visible {
       outline: 4px solid #ffd93d;
       outline-offset: 3px;
     }
@@ -756,7 +756,7 @@
     <div class="reply" id="reply" aria-live="polite">
       <p class="reply-title">Send this to me on Messenger:</p>
       <strong class="message-copy" id="message-text"></strong>
-      <button class="messenger-button" id="messenger-button" type="button">Copy &amp; open Messenger</button>
+      <button class="copy-button" id="copy-button" type="button">Copy message</button>
       <small class="send-status" id="send-status"></small>
     </div>
   </main>
@@ -801,7 +801,7 @@
     const dayError = document.getElementById("day-error");
     const reply = document.getElementById("reply");
     const messageText = document.getElementById("message-text");
-    const messengerButton = document.getElementById("messenger-button");
+    const copyButton = document.getElementById("copy-button");
     const sendStatus = document.getElementById("send-status");
 
     function moveNoButton(event) {
@@ -832,7 +832,7 @@
       reply.classList.add("show");
     });
 
-    messengerButton.addEventListener("click", async () => {
+    copyButton.addEventListener("click", async () => {
       const message = messageText.textContent;
 
       try {
@@ -841,8 +841,6 @@
       } catch {
         sendStatus.textContent = "Copy the message above, then paste it into Messenger.";
       }
-
-      window.open("https://www.messenger.com/", "_blank", "noopener,noreferrer");
     });
   </script>
 
